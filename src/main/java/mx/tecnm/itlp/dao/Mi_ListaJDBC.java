@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import mx.tecnm.itlp.models.CantidadResponse;
 import mx.tecnm.itlp.models.Mi_Lista;
 import mx.tecnm.itlp.models.Mi_lista_response;
 import mx.tecnm.itlp.models.Peliculas;
@@ -33,6 +34,15 @@ public class Mi_ListaJDBC {
 		return conexion.query(sql, new MiListaRM(),id );
 	}
 	
+	public List<CantidadResponse> consultarCantidadPeliculas(int idperfilusuarios) {
+		String sql = "SELECT COUNT(*) AS cantidad\r\n"
+				+ "FROM mi_lista AS m \r\n"
+				+ "JOIN peliculas AS p ON p.id=m.peliculas_id\r\n"
+				+ "WHERE p.activo = 1 AND m.perfiles_usuarios_id=?\r\n"
+				+ "\r\n"
+				+ "";
+		return conexion.query(sql, new CountLista(), idperfilusuarios);
+	}
 
 	
 	

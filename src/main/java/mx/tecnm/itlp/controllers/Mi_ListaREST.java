@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mx.tecnm.itlp.dao.Mi_ListaJDBC;
 import mx.tecnm.itlp.dao.PeliculasJDBC;
+import mx.tecnm.itlp.models.CantidadResponse;
 import mx.tecnm.itlp.models.Mi_Lista;
 import mx.tecnm.itlp.models.Mi_lista_response;
 
@@ -46,6 +47,17 @@ public class Mi_ListaREST {
 		try {
 			List<Mi_lista_response> resultado= repo.consultarListaIdPerfil(id);
 			return new ResponseEntity<List<Mi_lista_response>>(resultado, HttpStatus.OK);
+			}
+			catch (Exception e){
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+		}
+		
+		@GetMapping("/{id}/cantidad")
+		public ResponseEntity<?> consultarCantidadPelis(@PathVariable("id") int id){
+		try {
+			List<CantidadResponse> resultado= repo.consultarCantidadPeliculas(id);
+			return new ResponseEntity<List<CantidadResponse>>(resultado, HttpStatus.OK);
 			}
 			catch (Exception e){
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
