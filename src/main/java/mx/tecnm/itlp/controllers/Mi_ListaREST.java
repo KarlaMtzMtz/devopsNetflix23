@@ -16,11 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mx.tecnm.itlp.dao.Mi_ListaJDBC;
 import mx.tecnm.itlp.dao.PeliculasJDBC;
-<<<<<<< HEAD
-import mx.tecnm.itlp.models.CantidadResponse;
-=======
 
->>>>>>> 311e0f38791ee615ed2896da27460d49ce529eb5
+import mx.tecnm.itlp.models.CantidadResponse;
+
 import mx.tecnm.itlp.models.Mi_Lista;
 import mx.tecnm.itlp.models.Mi_lista_response;
 
@@ -59,9 +57,7 @@ public class Mi_ListaREST {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
 		}
-		
-<<<<<<< HEAD
-		@GetMapping("/{id}/cantidad")
+				@GetMapping("/{id}/cantidad")
 		public ResponseEntity<?> consultarCantidadPelis(@PathVariable("id") int id){
 		try {
 			List<CantidadResponse> resultado= repo.consultarCantidadPeliculas(id);
@@ -79,8 +75,7 @@ public class Mi_ListaREST {
 	   
 	
 	   
-=======
-		
+
 		   @DeleteMapping("/lista/{idperfilusuarios}/{idpeliculas}")
 		   public void EliminarLista(@PathVariable("idperfilusuarios") int idperfilusuarios, @PathVariable("idpeliculas") int idpeliculas) {
 		   repo.EliminarLista(idperfilusuarios, idpeliculas);
@@ -92,5 +87,5 @@ public class Mi_ListaREST {
 		    public List<Mi_lista_response> consultar() {
 		        return repo.consultar();
 		    }
->>>>>>> 311e0f38791ee615ed2896da27460d49ce529eb5
+
 }
