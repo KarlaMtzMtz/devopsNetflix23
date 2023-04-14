@@ -6,11 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-<<<<<<< HEAD
+
 
 import mx.tecnm.itlp.models.CantidadResponse;
-=======
->>>>>>> 311e0f38791ee615ed2896da27460d49ce529eb5
+
 import mx.tecnm.itlp.models.Mi_Lista;
 import mx.tecnm.itlp.models.Mi_lista_response;
 import mx.tecnm.itlp.models.Peliculas;
@@ -37,7 +36,7 @@ public class Mi_ListaJDBC {
 		return conexion.query(sql, new MiListaRM(),id );
 	}
 	
-<<<<<<< HEAD
+
 	public List<CantidadResponse> consultarCantidadPeliculas(int idperfilusuarios) {
 		String sql = "SELECT COUNT(*) AS cantidad\r\n"
 				+ "FROM mi_lista AS m \r\n"
@@ -47,7 +46,7 @@ public class Mi_ListaJDBC {
 				+ "";
 		return conexion.query(sql, new CountLista(), idperfilusuarios);
 	}
-=======
+
 	public void EliminarLista (int idperfilusuarios, int idpeliculas) {
 		String sql="DELETE FROM mi_lista WHERE  perfiles_usuarios_id=? AND peliculas_id=?";
 		conexion.update(sql,idperfilusuarios, idpeliculas);
@@ -60,7 +59,7 @@ public class Mi_ListaJDBC {
         return conexion.query(sql, new MiListaRM());
         
     }
->>>>>>> 311e0f38791ee615ed2896da27460d49ce529eb5
+
 
 	
 	
