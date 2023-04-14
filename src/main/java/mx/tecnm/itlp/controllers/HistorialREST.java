@@ -32,7 +32,7 @@ public class HistorialREST {
 	   @PostMapping("/historial")
 	    public ResponseEntity<?> insertarH(@RequestBody Historial h) {
 	    	try {
-	    	repo.insertarHistorial(h);
+	    	repo.insertHistorial(h);
 	    	return new ResponseEntity<Void>(HttpStatus.CREATED);
 	    	
 	    	} catch (Exception e) {
