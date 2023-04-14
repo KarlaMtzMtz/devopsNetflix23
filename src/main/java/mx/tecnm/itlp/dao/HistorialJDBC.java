@@ -31,6 +31,13 @@ public class HistorialJDBC {
 	
 	}
 
+
+	public void actualizarHistorial(Historial h) {
+		String sql = "UPDATE historial SET tiempo_avance = ? WHERE id=?;";
+		conexion.update(sql,h.getTiempo_avance(),h.getId());
+		
+	}
+
 	
 	
 }
